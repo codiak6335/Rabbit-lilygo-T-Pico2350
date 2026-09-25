@@ -1,0 +1,3 @@
+add_executable(rabbit_host main.cpp)
+target_link_libraries(rabbit_host PRIVATE rabbit_core rabbit_protocol)
+target_compile_features(rabbit_host PRIVATE cxx_std_17)

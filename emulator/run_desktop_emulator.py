@@ -73,18 +73,12 @@ def main():
     sys.path.insert(0, str(ROOT))
     sys.path.insert(0, str(ROOT / "emulator" / "stubs"))
 
-    from emulator.viewer_server import start_viewer
-
     _patch_time()
     _patch_paths()
     _patch_microdot_run()
 
-    viewer_host = os.getenv("RABBIT_EMULATOR_VIEW_HOST", "127.0.0.1")
-    viewer_port = int(os.getenv("RABBIT_EMULATOR_VIEW_PORT", "8081"))
-    start_viewer(host=viewer_host, port=viewer_port)
-
-    print(f"[emulator] viewer: http://{viewer_host}:{viewer_port}")
-    print("[emulator] app:    http://127.0.0.1:8080")
+    print("[emulator] view: http://127.0.0.1:8080/emulator")
+    print("[emulator] app:  http://127.0.0.1:8080")
 
     import main  # noqa: F401
 

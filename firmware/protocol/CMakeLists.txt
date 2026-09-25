@@ -1,0 +1,5 @@
+add_library(rabbit_protocol src/framing.cpp src/workout_service.cpp)
+target_include_directories(rabbit_protocol PUBLIC include)
+target_link_libraries(rabbit_protocol PUBLIC rabbit_core)
+target_compile_features(rabbit_protocol PUBLIC cxx_std_17)
+target_compile_options(rabbit_protocol PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow)

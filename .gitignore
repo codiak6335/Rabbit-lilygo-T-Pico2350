@@ -2,6 +2,7 @@
 wifi.json
 db/wifi.json
 .gitnexus/
+build/
 __pycache__/
 .idea/
 *.py[cod]

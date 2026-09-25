@@ -1,0 +1,11 @@
+# Pinned build inputs
+#
+# Check out the exact commits below. Do not update these independently of a
+# cross-target regression build and hardware-qualification run.
+
+pico_sdk.commit=079c6f39023649b154152db30f1d781e884879bc
+arm_gcc.package=@xpack-dev-tools/arm-none-eabi-gcc
+arm_gcc.version=15.2.1-1.1.1
+esp_idf.version=v5.3.2
+esp_idf.commit=9d7f2d69f50d1288526d4f1027108e314e8c879f
+cmake.minimum=3.20

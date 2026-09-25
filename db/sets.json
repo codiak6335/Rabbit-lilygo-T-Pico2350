@@ -33,6 +33,16 @@
       "format": "deckscript",
       "version": 2,
       "source": "workout \"Pyramid 100\u2013500\"\npool \"Bellevue East\"\ndirection near\naudio yes\n\n50 x 100 s on 1:10 hold :57"
+    },
+    "Pyramid 200-1000": {
+      "format": "deckscript",
+      "version": 2,
+      "source": "workout \"Pyramid 200-1000\"\npool \"Bellevue East\"\ndirection near\naudio yes\n\nladder 200 to 1000 to 100 step 100 on 1:15 per 100 hold 1:00 per 100"
+    },
+    "variable speed": {
+      "format": "deckscript",
+      "version": 2,
+      "source": "workout \"variable speed\"\npool \"Bellevue East\"\ndirection near\naudio yes\n\n10 x 100 s descend, on 1:15 hold :57"
     }
   }
 }

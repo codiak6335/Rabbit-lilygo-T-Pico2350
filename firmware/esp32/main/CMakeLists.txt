@@ -1,0 +1,20 @@
+idf_component_register(
+    SRCS
+        "app_main.cpp"
+        "../../core/src/pool_geometry.cpp"
+        "../../core/src/workout_engine.cpp"
+        "../../protocol/src/framing.cpp"
+        "../../protocol/src/workout_service.cpp"
+    INCLUDE_DIRS
+        "."
+        "../../core/include"
+        "../../protocol/include"
+    REQUIRES
+        driver
+        esp_event
+        esp_http_server
+        esp_netif
+        esp_timer
+        esp_wifi
+        nvs_flash
+)

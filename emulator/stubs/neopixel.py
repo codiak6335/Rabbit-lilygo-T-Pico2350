@@ -2,9 +2,11 @@ from emulator import runtime_state
 
 
 class NeoPixel:
-    def __init__(self, pin, count):
+    def __init__(self, pin, count, bpp=3, timing=1):
         self.pin = pin
         self.count = int(count)
+        self.bpp = int(bpp)
+        self.timing = timing
         self._pixels = [(0, 0, 0)] * self.count
         runtime_state.init_led(self.count)
 

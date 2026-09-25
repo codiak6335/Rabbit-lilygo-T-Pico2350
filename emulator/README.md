@@ -1,9 +1,7 @@
 # Rabbit Desktop Emulators
 
-This adds local emulators for:
-- LED strand (`neopixel` state + visual grid)
-- OLED/TFT display text output
-- Web interface (the existing Rabbit UI served by `main.py`)
+This adds a local emulator for the LED strand, pool-bottom tracing, OLED/TFT
+display text, and the existing Rabbit web interface.
 
 ## Run
 
@@ -14,7 +12,7 @@ python3 emulator/run_desktop_emulator.py
 ```
 
 Then open:
-- Emulator viewer: `http://127.0.0.1:8081`
+- Emulator view: `http://127.0.0.1:8080/emulator`
 - Rabbit web UI: `http://127.0.0.1:8080`
 
 ## Notes
