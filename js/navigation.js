@@ -23,7 +23,7 @@
     const screens = {
         home: $('homeScreen'), review: $('reviewScreen'), editor: $('editorScreen'),
         builderChoice: $('builderChoiceScreen'), workoutEditor: $('workoutEditorScreen'),
-        deck: $('deckScreen'), tools: $('toolsScreen'), json: $('jsonScreen'), led: $('ledScreen'),
+        deck: $('deckScreen'), tools: $('toolsScreen'), json: $('jsonScreen'), led: $('ledScreen'), audio: $('audioScreen'),
     };
 
     const WORKOUT_EXAMPLES = {
@@ -864,7 +864,7 @@ repeat until stopped {
         });
         document.querySelectorAll('[data-tool]').forEach((button) => button.addEventListener('click', () => {
             const tool = button.dataset.tool;
-            if (tool === 'led') show('led'); else openJson(tool);
+            if (tool === 'led' || tool === 'audio') show(tool); else openJson(tool);
         }));
         document.querySelectorAll('[data-api]').forEach((button) => button.addEventListener('click', async () => {
             try { await request(button.dataset.api); $('ledMessage').textContent = 'Command completed.'; }

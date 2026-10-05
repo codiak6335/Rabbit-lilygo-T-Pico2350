@@ -231,9 +231,46 @@ rest :30</pre>
             <div class="tool-list">
                 <button data-tool="pool" class="tool-row"><span>Pool settings<small>Default pool and geometry</small></span><b>›</b></button>
                 <button data-tool="network" class="tool-row"><span>Network settings<small>Wi-Fi profiles</small></span><b>›</b></button>
+                <button data-tool="audio" class="tool-row"><span>Audio output<small>Buzzer, speakers, and volume</small></span><b>›</b></button>
                 <button data-tool="led" class="tool-row"><span>LED controls<small>Test strand and markers</small></span><b>›</b></button>
                 <button id="emulatorLink" class="tool-row is-hidden"><span>Emulator view<small>Live pool visualization</small></span><b>›</b></button>
                 <button id="resetButton" class="tool-row tool-danger"><span>Restart controller<small>Interrupts the current session</small></span><b>›</b></button>
+            </div>
+        </section>
+
+        <section id="audioScreen" class="screen" aria-labelledby="audioTitle">
+            <div class="hero hero-compact"><p class="eyebrow">Settings</p><h1 id="audioTitle">Audio output</h1><p class="supporting">Choose your output and set up a Bluetooth speaker.</p></div>
+            <div id="audioControls" class="audio-card">
+                <label class="field"><span>Output</span><select id="audioMode"><option value="off">Off</option><option value="buzzer">Buzzer</option><option value="bluetooth">Bluetooth speaker</option><option value="both">Buzzer + speaker</option></select></label>
+                <label class="field"><span>Volume <output id="audioLevel" for="audioVolume">50%</output></span><input id="audioVolume" type="range" min="0" max="100" value="50"></label>
+                <p id="audioMessage" class="inline-message" role="status" aria-live="polite">Checking audio connection…</p>
+                <p id="audioError" class="inline-message is-hidden" role="alert"></p>
+                <div class="audio-device-section">
+                    <h2>My devices</h2>
+                    <p id="audioNoSpeaker" class="supporting">No speakers paired.</p>
+                    <div id="audioSavedList" class="audio-saved-list" aria-label="Saved speakers"></div>
+                    <button class="button button-secondary" type="button" data-audio="add">Add speaker</button>
+                </div>
+                <div id="audioNearby" class="audio-device-section is-hidden" aria-labelledby="audioNearbyTitle">
+                    <h2 id="audioNearbyTitle" tabindex="-1">Nearby devices</h2>
+                    <p class="supporting">Turn on your speaker and hold its Bluetooth button until the pairing light flashes, then tap Scan. Disconnect it from your phone if needed.</p>
+                    <div class="audio-actions">
+                        <button class="button button-secondary" type="button" data-audio="scan">Scan</button>
+                        <button class="button button-quiet is-hidden" type="button" data-audio="scan-stop">Stop scan</button>
+                        <button class="button button-quiet" type="button" data-audio="close">Close</button>
+                    </div>
+                    <p id="audioScanState" role="status" aria-live="polite"></p>
+                    <div id="audioDeviceList" class="tool-list" aria-label="Nearby speakers"></div>
+                </div>
+                <div class="audio-device-section">
+                    <div class="audio-actions">
+                        <button class="button button-secondary" type="button" data-audio="test">Test 3 beeps</button>
+                        <button class="button button-secondary is-hidden" type="button" data-audio="confirm">I heard them</button>
+                        <button class="button button-quiet is-hidden" type="button" data-audio="not-heard">I didn’t hear them</button>
+                    </div>
+                    <p id="audioTestState" class="supporting" role="status" aria-live="polite"></p>
+                </div>
+                <p class="supporting">Speaker beeps follow each set’s Audio choice. Stop the workout before pairing or testing.</p>
             </div>
         </section>
 
@@ -260,5 +297,6 @@ rest :30</pre>
 </div>
 <script src="js/deckscript.js"></script>
 <script src="js/navigation.js?v=20260726-poll"></script>
+<script src="js/audio.js"></script>
 </body>
 </html>

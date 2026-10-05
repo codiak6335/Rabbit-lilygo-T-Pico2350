@@ -1,4 +1,4 @@
-add_library(rabbit_protocol src/framing.cpp src/workout_service.cpp)
+add_library(rabbit_protocol src/framing.cpp src/plan_codec.cpp src/workout_service.cpp src/audio_service.cpp)
 target_include_directories(rabbit_protocol PUBLIC include)
 target_link_libraries(rabbit_protocol PUBLIC rabbit_core)
 target_compile_features(rabbit_protocol PUBLIC cxx_std_17)

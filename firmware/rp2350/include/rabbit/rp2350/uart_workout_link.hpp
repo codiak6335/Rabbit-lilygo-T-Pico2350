@@ -3,6 +3,7 @@
 #include <cstddef>
 
 #include "rabbit/protocol/workout_service.hpp"
+#include "rabbit/protocol/audio_service.hpp"
 
 namespace rabbit::rp2350 {
 
@@ -15,7 +16,7 @@ struct UartLinkStats {
 
 class UartWorkoutLink {
 public:
-    void poll(protocol::WorkoutService& service, core::Microseconds now_us);
+    void poll(protocol::WorkoutService& service, protocol::AudioService& audio, core::Microseconds now_us);
     [[nodiscard]] const UartLinkStats& stats() const { return stats_; }
 
 private:

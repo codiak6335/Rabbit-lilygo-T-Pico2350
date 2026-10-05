@@ -8,7 +8,7 @@ constexpr std::size_t kMaxRxBytesPerPoll = 64;
 constexpr std::size_t kMaxTxBytesPerPoll = 64;
 }
 
-void UartWorkoutLink::poll(protocol::WorkoutService& service, const core::Microseconds now_us) {
+void UartWorkoutLink::poll(protocol::WorkoutService& service, protocol::AudioService& audio, const core::Microseconds now_us) {
     std::size_t received = 0;
     while (uart_is_readable(uart0) && received < kMaxRxBytesPerPoll) {
         protocol::Frame request{};
@@ -19,7 +19,19 @@ void UartWorkoutLink::poll(protocol::WorkoutService& service, const core::Micros
         ++stats_.received_bytes;
         if (decoder_.push(byte, request, error)) {
             ++stats_.received_frames;
-            static_cast<void>(service.handle(request, now_us, response));
+            if (!audio.handle(request, service.active_session(), service.snapshot(now_us).running, response)) {
+                if (request.type == protocol::MessageType::Start && request.session_id == service.active_session() && audio.blocks_start()) {
+                    response = {};
+                    response.type = protocol::MessageType::Reject;
+                    response.session_id = request.session_id;
+                    response.request_id = request.request_id;
+                    response.payload[0] = static_cast<std::uint8_t>(request.type);
+                    response.payload[1] = static_cast<std::uint8_t>(protocol::ServiceError::Command);
+                    response.payload_size = 2;
+                } else {
+                    static_cast<void>(service.handle(request, now_us, response));
+                }
+            }
             queue(response);
         }
     }

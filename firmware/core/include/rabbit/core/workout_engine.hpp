@@ -9,9 +9,12 @@ public:
     [[nodiscard]] ValidationError prepare(const WorkoutPlan& plan, const PoolProfile& pool);
     [[nodiscard]] bool start(Microseconds now_us, std::uint32_t request_id);
     [[nodiscard]] bool stop(std::uint32_t request_id);
+    [[nodiscard]] bool cancel(std::uint32_t request_id);
     void advance(Microseconds now_us);
     [[nodiscard]] EngineSnapshot snapshot(Microseconds now_us) const;
     [[nodiscard]] EngineState state() const { return state_; }
+    [[nodiscard]] const WorkoutPlan& plan() const { return plan_; }
+    [[nodiscard]] const PoolProfile& pool() const { return pool_; }
     [[nodiscard]] std::uint32_t last_request_id() const { return last_request_id_; }
 
 private:

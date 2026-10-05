@@ -22,6 +22,20 @@ enum class MessageType : std::uint8_t {
     Status = 8,
     Ack = 9,
     Reject = 10,
+    Cancel = 11,
+    AudioStatus = 12,
+    AudioConfigure = 13,
+    AudioPair = 14,
+    AudioDisconnect = 15,
+    AudioTest = 16,
+    AudioForget = 17,
+    AudioScan = 18,
+    AudioDevices = 19,
+    AudioConnect = 20,
+    AudioConfirm = 21,
+    AudioScanStop = 22,
+    AudioSaved = 23,
+    AudioForgetDevice = 24,
 };
 
 enum class DecodeError : std::uint8_t { None, Overflow, Cobs, Header, Crc };

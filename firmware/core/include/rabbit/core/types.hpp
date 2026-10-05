@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <cstring>
+#include <type_traits>
 
 namespace rabbit::core {
 
@@ -100,15 +101,26 @@ struct WorkoutPlan {
     Direction direction{Direction::NearToFar};
     bool audio_enabled{true};
     bool continuous{false};
+    bool deckscript{false};
     std::array<PlanEntry, kMaxPlanEntries> entries{};
     std::uint16_t entry_count{0};
 };
 
+inline void clear_workout_plan(WorkoutPlan& plan) {
+    static_assert(std::is_trivially_copyable_v<WorkoutPlan>);
+    std::memset(static_cast<void*>(&plan), 0, sizeof(plan));
+    plan.version = 2;
+}
+
 struct EngineSnapshot {
     EngineState state{EngineState::Idle};
     std::uint16_t entry_index{0};
+    std::uint16_t entry_count{0};
+    std::uint32_t distance_mm{0};
+    std::uint32_t target_ms{0};
     std::uint32_t cycle{0};
     bool running{false};
+    bool continuous{false};
     bool audio_on{false};
     bool cursor_visible{false};
     std::uint16_t cursor_pixel{0};

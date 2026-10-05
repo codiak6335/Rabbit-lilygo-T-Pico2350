@@ -3,18 +3,38 @@
 #include <cstring>
 
 #include "hardware/gpio.h"
-#include "hardware/i2c.h"
 #include "hardware/uart.h"
+#include "hardware/watchdog.h"
+#include "hardware/structs/scb.h"
 #include "pico/stdlib.h"
 
 #include "rabbit/rp2350/board_config.hpp"
+#include "rabbit/rp2350/audio_output.hpp"
 #include "rabbit/rp2350/uart_workout_link.hpp"
 #include "rabbit/rp2350/ws2812_dma.hpp"
 
+extern "C" void rabbit_hardfault_record(const std::uint32_t* frame) {
+    watchdog_hw->scratch[0] |= 0x80000000U;
+    watchdog_hw->scratch[1] = scb_hw->cfsr;
+    const auto address = reinterpret_cast<std::uintptr_t>(frame);
+    const bool valid_frame = address >= 0x20000000U && address <= 0x20081fe0U &&
+        (scb_hw->cfsr & 0x3838U) == 0;
+    watchdog_hw->scratch[2] = valid_frame ? frame[6] : 0;
+    watchdog_hw->scratch[3] = valid_frame ? frame[5] : 0;
+    while (true) __asm volatile("wfi");
+}
+extern "C" __attribute__((naked)) void isr_hardfault() {
+    __asm volatile("tst lr, #4\n"
+                   "ite eq\n"
+                   "mrseq r0, msp\n"
+                   "mrsne r0, psp\n"
+                   "b rabbit_hardfault_record\n");
+}
+
 namespace {
+std::uint32_t recovered_stage = 0, recovered_cfsr = 0, recovered_pc = 0, recovered_lr = 0;
 constexpr rabbit::core::Microseconds kAudioTestDurationUs = 150'000;
 constexpr rabbit::core::Microseconds kLedChaseIntervalUs = 75'000;
-constexpr std::uint32_t kI2cTimeoutUs = 20'000;
 
 struct Diagnostics {
     char command[24]{};
@@ -45,54 +65,6 @@ void configure_uart() {
     uart_set_hw_flow(uart0, false, false);
 }
 
-bool read_expander_register(const std::uint8_t register_address, std::uint8_t& value) {
-    if (i2c_write_timeout_us(i2c0, rabbit::rp2350::kExpanderAddress, &register_address, 1, true,
-                             kI2cTimeoutUs) != 1) {
-        return false;
-    }
-    return i2c_read_timeout_us(i2c0, rabbit::rp2350::kExpanderAddress, &value, 1, false,
-                               kI2cTimeoutUs) == 1;
-}
-
-bool write_expander_register(const std::uint8_t register_address, const std::uint8_t value) {
-    const std::uint8_t bytes[]{register_address, value};
-    return i2c_write_timeout_us(i2c0, rabbit::rp2350::kExpanderAddress, bytes, sizeof(bytes), false,
-                                kI2cTimeoutUs) == static_cast<int>(sizeof(bytes));
-}
-
-bool release_esp32() {
-    i2c_init(i2c0, 100'000);
-    gpio_set_function(rabbit::rp2350::kI2cSdaPin, GPIO_FUNC_I2C);
-    gpio_set_function(rabbit::rp2350::kI2cSclPin, GPIO_FUNC_I2C);
-    gpio_pull_up(rabbit::rp2350::kI2cSdaPin);
-    gpio_pull_up(rabbit::rp2350::kI2cSclPin);
-
-    std::uint8_t configuration{};
-    std::uint8_t outputs{};
-    if (!read_expander_register(rabbit::rp2350::kExpanderConfigPort0Register, configuration) ||
-        !write_expander_register(rabbit::rp2350::kExpanderConfigPort0Register,
-                                 static_cast<std::uint8_t>(configuration & ~rabbit::rp2350::kEspEnableMask)) ||
-        !read_expander_register(rabbit::rp2350::kExpanderOutputPort0Register, outputs) ||
-        !write_expander_register(rabbit::rp2350::kExpanderOutputPort0Register,
-                                 static_cast<std::uint8_t>(outputs & ~rabbit::rp2350::kEspEnableMask))) {
-        return false;
-    }
-    sleep_ms(100);
-    return write_expander_register(rabbit::rp2350::kExpanderOutputPort0Register,
-                                   static_cast<std::uint8_t>(outputs | rabbit::rp2350::kEspEnableMask));
-}
-
-const char* esp_enable_state() {
-    std::uint8_t configuration{};
-    std::uint8_t outputs{};
-    if (!read_expander_register(rabbit::rp2350::kExpanderConfigPort0Register, configuration) ||
-        !read_expander_register(rabbit::rp2350::kExpanderOutputPort0Register, outputs)) {
-        return "unavailable";
-    }
-    if ((configuration & rabbit::rp2350::kEspEnableMask) != 0U) return "input";
-    return (outputs & rabbit::rp2350::kEspEnableMask) != 0U ? "released" : "held-low";
-}
-
 void print_help() {
     std::puts("commands: help status led audio off");
 }
@@ -109,9 +81,12 @@ void print_status(
         static_cast<unsigned int>(snapshot.state), leds.enabled() ? "ready" : "disabled",
         rabbit::rp2350::kLedDataPin, rabbit::rp2350::kAudioPin,
         rabbit::rp2350::kLocalStopButtonPin < 0 ? "unconfigured" :
-            (local_stop_pressed ? "pressed" : "released"), esp_enable_state(),
+            (local_stop_pressed ? "pressed" : "released"), "external",
         static_cast<unsigned long>(uart_stats.received_bytes), static_cast<unsigned long>(uart_stats.received_frames),
         static_cast<unsigned long>(uart_stats.transmitted_bytes), static_cast<unsigned long>(uart_stats.transmitted_frames));
+    std::printf("recovery stage=%08lx cfsr=%08lx pc=%08lx lr=%08lx\n",
+        static_cast<unsigned long>(recovered_stage), static_cast<unsigned long>(recovered_cfsr),
+        static_cast<unsigned long>(recovered_pc), static_cast<unsigned long>(recovered_lr));
 }
 
 void clear_leds(rabbit::rp2350::Ws2812Dma& leds) {
@@ -206,8 +181,18 @@ bool update_diagnostics(
 }  // namespace
 
 int main() {
+    const bool recovered_hang = watchdog_enable_caused_reboot();
+    const auto stalled_stage = watchdog_hw->scratch[0];
+    if (recovered_hang) {
+        recovered_stage = stalled_stage;
+        recovered_cfsr = watchdog_hw->scratch[1];
+        recovered_pc = watchdog_hw->scratch[2];
+        recovered_lr = watchdog_hw->scratch[3];
+    }
+    watchdog_hw->scratch[1] = 0; watchdog_hw->scratch[2] = 0; watchdog_hw->scratch[3] = 0;
     stdio_init_all();
-    const bool esp_released = release_esp32();
+    watchdog_enable(4000, true);
+    watchdog_hw->scratch[0] = 1;
     configure_uart();
     if (rabbit::rp2350::kLocalStopButtonPin >= 0) {
         gpio_init(static_cast<unsigned int>(rabbit::rp2350::kLocalStopButtonPin));
@@ -219,21 +204,27 @@ int main() {
         gpio_set_dir(static_cast<unsigned int>(rabbit::rp2350::kAudioPin), GPIO_OUT);
     }
 
-    rabbit::rp2350::Ws2812Dma leds{};
+    static rabbit::rp2350::Ws2812Dma leds{};
     leds.initialise();
-    rabbit::protocol::WorkoutService workout{transport_pool()};
-    rabbit::rp2350::UartWorkoutLink uart_link{};
+    static rabbit::protocol::WorkoutService workout{transport_pool()};
+    static rabbit::rp2350::UartWorkoutLink uart_link{};
+    static rabbit::rp2350::AudioOutput audio{};
+    audio.initialise();
+    static rabbit::protocol::AudioService audio_service{audio};
     Diagnostics diagnostics{};
     bool local_stop_was_pressed = false;
 
     sleep_ms(500);
     std::puts("Rabbit RP2350 diagnostic firmware ready");
+    if (recovered_hang) std::printf("watchdog: recovered stalled stage %lu\n", static_cast<unsigned long>(stalled_stage));
     std::printf("led_pin=%d audio_pin=%d local_stop_pin=%d uart0=115200 esp=%s\n",
                 rabbit::rp2350::kLedDataPin, rabbit::rp2350::kAudioPin,
-                rabbit::rp2350::kLocalStopButtonPin, esp_released ? "released" : "unavailable");
+                rabbit::rp2350::kLocalStopButtonPin, "external");
     print_help();
 
     while (true) {
+        watchdog_update();
+        watchdog_hw->scratch[0] = 2;
         const auto now_us = static_cast<rabbit::core::Microseconds>(time_us_64());
         const bool local_stop_pressed = rabbit::rp2350::kLocalStopButtonPin >= 0 &&
             !gpio_get(static_cast<unsigned int>(rabbit::rp2350::kLocalStopButtonPin));
@@ -242,14 +233,18 @@ int main() {
         }
         if (local_stop_pressed && !local_stop_was_pressed) std::puts("local stop pressed");
         local_stop_was_pressed = local_stop_pressed;
-        uart_link.poll(workout, now_us);
+        uart_link.poll(workout, audio_service, now_us);
+        watchdog_hw->scratch[0] = 3;
         workout.advance(now_us);
         poll_console(diagnostics, leds, workout, uart_link, local_stop_pressed, now_us);
         const bool diagnostic_led_active = update_diagnostics(diagnostics, leds, now_us);
         const auto snapshot = workout.snapshot(now_us);
+        watchdog_hw->scratch[0] = 4;
+        audio.update(now_us, diagnostics.audio_test_active || snapshot.audio_on, snapshot.running);
+        watchdog_hw->scratch[0] = 5;
         if (rabbit::rp2350::kAudioPin >= 0) {
             gpio_put(static_cast<unsigned int>(rabbit::rp2350::kAudioPin),
-                     diagnostics.audio_test_active || snapshot.audio_on);
+                     audio.buzzer_on());
         }
         if (!diagnostic_led_active && snapshot.cursor_visible && leds.enabled()) {
             leds.clear();

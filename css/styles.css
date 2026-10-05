@@ -283,3 +283,16 @@ html[data-resolved-theme="dark"] .script-diagnostics { color: #b7dce9; backgroun
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
+
+.audio-card { display: grid; gap: 1rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+.audio-card h2 { margin: 0; font-size: 1rem; }
+.audio-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.audio-card input[type="range"] { width: 100%; }
+.audio-device-section { display: grid; gap: .75rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.audio-device-section p { margin: 0; }
+.audio-speaker-row { width: 100%; }
+.audio-speaker-row span { min-width: 0; overflow-wrap: anywhere; }
+.audio-speaker-row b { flex-shrink: 0; font-size: .8rem; }
+.audio-saved-list { display: grid; gap: .75rem; }
+.audio-saved-device { display: grid; gap: .5rem; }
+#audioError { color: var(--red-500, #e66); }

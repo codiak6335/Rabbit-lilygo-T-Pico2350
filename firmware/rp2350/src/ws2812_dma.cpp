@@ -10,7 +10,8 @@ namespace rabbit::rp2350 {
 
 bool Ws2812Dma::initialise() {
     if (kLedDataPin < 0) return false;
-    PIO pio = pio0;
+    // Reserve PIO0 with GPIO base 16 for the CYW43439 on GPIO36..39.
+    PIO pio = pio1;
     const int selected_sm = pio_claim_unused_sm(pio, false);
     const int selected_dma = dma_claim_unused_channel(false);
     if (selected_sm < 0 || selected_dma < 0) return false;
@@ -50,7 +51,8 @@ void Ws2812Dma::set_pixel(
 
 void Ws2812Dma::show() {
     if (!enabled_) return;
-    PIO pio = pio0;
+    // Reserve PIO0 with GPIO base 16 for the CYW43439 on GPIO36..39.
+    PIO pio = pio1;
     dma_channel_wait_for_finish_blocking(dma_channel_);
     auto config = dma_channel_get_default_config(dma_channel_);
     channel_config_set_transfer_data_size(&config, DMA_SIZE_32);

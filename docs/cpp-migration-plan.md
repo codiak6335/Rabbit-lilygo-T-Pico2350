@@ -2,6 +2,11 @@
 
 Review date: 2026-09-17. Source baseline: `2c9afe7`, branch `c++`.
 
+Historical review: this plan predates the separate Waveshare boards and the
+checked-in C++ firmware. Use the root [README](../README.md) and
+[firmware README](../firmware/README.md) for the current hardware and build
+settings.
+
 This is a review and implementation plan; no firmware has been ported or flashed. The working assumption is **RP2350 and ESP32-C6 cooperating on one LilyGO T-Pico2350/T-Pico2 board**. Separate standalone RP2350 and ESP32 products would require additional board and networking adapters. Confirm the physical board revision before selecting pins or flashing images.
 
 ## Recommendation

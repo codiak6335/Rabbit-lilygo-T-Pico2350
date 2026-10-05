@@ -7,6 +7,9 @@ if(NOT PICO_SDK_PATH)
     message(FATAL_ERROR "Set PICO_SDK_PATH to a pinned Raspberry Pi Pico SDK checkout.")
 endif()
 
+set(PICO_BOARD waveshare_rp2350b_plus_w CACHE STRING "RP2350 board")
+list(APPEND PICO_BOARD_HEADER_DIRS ${CMAKE_CURRENT_LIST_DIR}/boards)
+
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 project(rabbit_rp2350 LANGUAGES C CXX ASM)
 pico_sdk_init()
@@ -22,21 +25,30 @@ add_executable(rabbit_rp2350
     src/main.cpp
     src/uart_workout_link.cpp
     src/ws2812_dma.cpp
+    src/audio_output.cpp
 )
 set_source_files_properties(src/ws2812_dma.cpp PROPERTIES CXX_STANDARD 20 CXX_STANDARD_REQUIRED YES CXX_EXTENSIONS NO)
-target_include_directories(rabbit_rp2350 PRIVATE include)
+target_include_directories(rabbit_rp2350 PRIVATE include config)
 target_link_libraries(rabbit_rp2350 PRIVATE
     rabbit_core
     rabbit_protocol
     hardware_dma
-    hardware_i2c
     hardware_pio
     hardware_uart
+    hardware_watchdog
     hardware_gpio
     pico_stdlib
+    pico_cyw43_arch_poll
+    pico_btstack_cyw43
+    pico_btstack_classic
+    pico_btstack_sbc_encoder
 )
 target_compile_features(rabbit_rp2350 PRIVATE cxx_std_17)
 target_compile_definitions(rabbit_rp2350 PRIVATE
+    # BTstack callback chains share the foreground stack; buffers live in static RAM.
+    PICO_STACK_SIZE=0x1000
+    # Poll Bluetooth on the foreground core without linking Wi-Fi/lwIP.
+    CYW43_LWIP=0
     RABBIT_LED_PIN=${RABBIT_LED_PIN}
     RABBIT_AUDIO_PIN=${RABBIT_AUDIO_PIN}
     RABBIT_LOCAL_STOP_PIN=${RABBIT_LOCAL_STOP_PIN}

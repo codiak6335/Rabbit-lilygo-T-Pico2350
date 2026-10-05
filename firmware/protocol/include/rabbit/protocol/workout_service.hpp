@@ -8,9 +8,11 @@
 namespace rabbit::protocol {
 
 constexpr std::uint16_t kPreparePayloadSize = 13;
+constexpr std::uint16_t kPrepareSetPayloadSize = 21;
 constexpr std::uint8_t kPrepareFlagFarToNear = 0x01;
 constexpr std::uint8_t kPrepareFlagAudio = 0x02;
 constexpr std::uint8_t kPrepareFlagWaitForInterval = 0x04;
+constexpr std::uint8_t kPrepareFlagContinuous = 0x08;
 
 enum class ServiceError : std::uint8_t {
     None = 0,
@@ -36,9 +38,13 @@ private:
     void make_reject(const Frame& request, ServiceError error, Frame& response) const;
     void make_status(const Frame& request, core::Microseconds now_us, Frame& response) const;
     [[nodiscard]] ServiceError prepare(const Frame& request);
+    [[nodiscard]] ServiceError begin_plan_transfer(const Frame& request);
+    [[nodiscard]] ServiceError append_plan_chunk(const Frame& request);
+    [[nodiscard]] ServiceError commit_plan_transfer(const Frame& request);
 
     core::PoolProfile pool_{};
     core::WorkoutEngine engine_{};
+    PlanTransfer transfer_{};
     std::uint32_t active_session_id_{0};
     std::uint32_t last_request_id_{0};
     MessageType last_request_type_{MessageType::Hello};
