@@ -1,0 +1,241 @@
+{
+  "units": "mm",
+  "parameters": {
+    "carrier_width": 88.0,
+    "carrier_height": 58.0,
+    "carrier_thickness": 1.6,
+    "pcb_underside_clearance": 2.5,
+    "above_pcb_clearance": 20.0,
+    "floor_thickness": 3.0,
+    "lid_thickness": 4.0,
+    "cavity_left_clearance": 2.0,
+    "cavity_right_clearance": 2.0,
+    "cavity_front_clearance": 10.0,
+    "cavity_back_clearance": 6.0,
+    "rim_width": 8.0,
+    "lcd_center_x": 31.0,
+    "lcd_center_y": 14.0,
+    "view_width": 46.0,
+    "view_height": 26.0,
+    "view_radius": 1.0,
+    "resin_flange_border": 6.0,
+    "resin_flange_thickness": 2.4,
+    "retainer_border": 3.0,
+    "retainer_thickness": 2.0,
+    "window_seal_groove_width": 1.2,
+    "window_seal_groove_depth": 0.6,
+    "gasket_cord_diameter": 2.0,
+    "gasket_groove_width": 2.8,
+    "gasket_groove_depth": 1.5,
+    "gasket_center_from_cavity": 2.8,
+    "entry_hole_diameter": 8.6,
+    "relief_neck_diameter": 7.4,
+    "relief_neck_axial_slack": 0.3,
+    "relief_flange_diameter": 12.0,
+    "relief_tail_length": 20.0,
+    "relief_bore_clearance": 0.2,
+    "wrap_seam_width": 0.4,
+    "entry_y_positions": [
+      27.0,
+      47.0
+    ],
+    "entry_center_z": 15.0,
+    "wire_diameters": [
+      2.3,
+      3.0,
+      3.5,
+      4.0
+    ]
+  },
+  "dimensions": {
+    "body_height": 27.1,
+    "closed_height": 31.1,
+    "outer_width": 108.0,
+    "outer_height": 90.0,
+    "pcb_bottom_z": 5.5,
+    "pcb_top_z": 7.1,
+    "resin_volume_ml": 7.183232924714179,
+    "gasket_cut_length_mm": 342.7256600888212,
+    "cable_glue_gap_radial_mm": 0.5999999999999996
+  },
+  "mesh_checks": {
+    "body_petg": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        108.0,
+        90.0,
+        27.1
+      ],
+      "volume_ml": 97.031,
+      "triangles": 7844
+    },
+    "lid_frame_petg": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        108.0,
+        90.0,
+        4.0
+      ],
+      "volume_ml": 31.301,
+      "triangles": 5824
+    },
+    "window_retainer_petg": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        64.0,
+        44.0,
+        2.0
+      ],
+      "volume_ml": 2.779,
+      "triangles": 3952
+    },
+    "pcb_corner_clip_petg_print_4": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        3.6,
+        6.2,
+        4.0
+      ],
+      "volume_ml": 0.067,
+      "triangles": 412
+    },
+    "cable_entry_fit_coupon_petg": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        32.0,
+        8.0,
+        20.0
+      ],
+      "volume_ml": 4.191,
+      "triangles": 788
+    },
+    "resin_cast_fit_coupon_petg": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        34.0,
+        28.0,
+        4.0
+      ],
+      "volume_ml": 1.859,
+      "triangles": 2736
+    },
+    "resin_coupon_retainer_petg": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        34.0,
+        28.0,
+        2.0
+      ],
+      "volume_ml": 1.101,
+      "triangles": 3952
+    },
+    "strain_relief_2_3mm_closed_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        12.0,
+        12.0,
+        33.8
+      ],
+      "volume_ml": 2.091,
+      "triangles": 4032
+    },
+    "strain_relief_2_3mm_split_wrap_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        11.993,
+        12.0,
+        33.8
+      ],
+      "volume_ml": 2.047,
+      "triangles": 4054
+    },
+    "strain_relief_3_0mm_closed_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        12.0,
+        12.0,
+        33.8
+      ],
+      "volume_ml": 1.985,
+      "triangles": 4032
+    },
+    "strain_relief_3_0mm_split_wrap_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        11.993,
+        12.0,
+        33.8
+      ],
+      "volume_ml": 1.945,
+      "triangles": 4062
+    },
+    "strain_relief_3_5mm_closed_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        12.0,
+        12.0,
+        33.8
+      ],
+      "volume_ml": 1.893,
+      "triangles": 4032
+    },
+    "strain_relief_3_5mm_split_wrap_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        11.993,
+        12.0,
+        33.8
+      ],
+      "volume_ml": 1.857,
+      "triangles": 4062
+    },
+    "strain_relief_4_0mm_closed_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        12.0,
+        12.0,
+        33.8
+      ],
+      "volume_ml": 1.789,
+      "triangles": 4032
+    },
+    "strain_relief_4_0mm_split_wrap_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        11.993,
+        12.0,
+        33.8
+      ],
+      "volume_ml": 1.756,
+      "triangles": 4062
+    },
+    "unused_entry_plug_tpu": {
+      "watertight_mesh": true,
+      "connected_bodies": 1,
+      "dimensions_mm": [
+        12.0,
+        12.0,
+        13.8
+      ],
+      "volume_ml": 0.891,
+      "triangles": 1148
+    }
+  },
+  "assembly_checks": "PASS: no solid collisions in nominal reference assembly; gasket/window isolated from fastener bores",
+  "limitations": "Geometric checks only. Carrier and stack dimensions require physical confirmation; waterproof performance is untested."
+}

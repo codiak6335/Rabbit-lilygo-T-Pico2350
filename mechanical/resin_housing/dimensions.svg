@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200mm" height="180mm" viewBox="0 0 200 180">
+<rect width="200" height="180" fill="white"/>
+<g font-family="sans-serif" fill="#203643"><text x="14" y="12" font-size="5">Resin-window housing — nominal dimensions (mm)</text>
+<rect x="28" y="30" width="108.0" height="90.0" rx="4" fill="#ebf4f8" stroke="#356c8b" stroke-width="0.5"/>
+<rect x="38.0" y="48.0" width="88.0" height="58.0" fill="none" stroke="#398745" stroke-dasharray="2 1" stroke-width="0.35"/>
+<rect x="46.0" y="49.0" width="46.0" height="26.0" rx="1" fill="#b8eafa" stroke="#356c8b" stroke-width="0.4"/>
+<text x="69.0" y="63.0" text-anchor="middle" font-size="4">46 × 26 view</text><circle cx="136.0" cy="75.0" r="2" fill="#444"/><text x="140.0" y="76.0" font-size="3">Ø8.6</text><circle cx="136.0" cy="95.0" r="2" fill="#444"/><text x="140.0" y="96.0" font-size="3">Ø8.6</text>
+<path d="M28 25 H136.0 M28 22 V28 M136.0 22 V28" fill="none" stroke="#333" stroke-width="0.3"/>
+<text x="82.0" y="23" text-anchor="middle" font-size="4">108</text>
+<path d="M22 30 V120.0 M19 30 H25 M19 120.0 H25" fill="none" stroke="#333" stroke-width="0.3"/>
+<text x="17" y="75.0" text-anchor="middle" font-size="4" transform="rotate(-90 17 75.0)">90</text>
+<text x="28" y="130" font-size="4">Closed height: 31.1; floor: 3; lid: 4</text>
+<text x="28" y="137" font-size="4">Cast flange: 58 × 38 × 2.4; clear centre: 4 thick</text>
+<text x="28" y="144" font-size="4">Carrier: 88 × 58; 20 above PCB / 18 below retainer</text>
+<text x="28" y="151" font-size="4">Cable centres: PCB Y=27,47; Z=15 from case base</text>
+<text x="28" y="162" font-size="3.5">Fit-study geometry. Verify your assembled hardware before final printing.</text></g></svg>

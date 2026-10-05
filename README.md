@@ -17,6 +17,16 @@ The boards are already connected with three wires. Pin numbers in the left colum
 
 The existing connection contains TX, RX, and ground; no RTS/CTS wires were specified. See the [Pico-compatible pinout](https://datasheets.raspberrypi.com/pico/Pico-2-Pinout.pdf) and [ESP32-C6-LCD-1.9 documentation](https://docs.waveshare.com/ESP32-C6-LCD-1.9).
 
+## Printable enclosure
+
+The [resin-window housing](mechanical/resin_housing/README.md) includes PETG body,
+lid frame, window retainer and PCB clips, plus closed and split-wrap TPU strain
+relief STLs for 2.3, 3, 3.5 and 4 mm cable jackets. It uses a cast clear resin
+window, a silicone cord lid seal and two oversized cable entries for adhesive
+sealing. Editable dimensions, print-fit coupons and assembly instructions are
+included. The 108 × 90 × 31.1 mm prototype assumes the 88 × 58 mm carrier layout;
+physical fit and splash/submersion qualification remain to be performed.
+
 ## Current firmware status
 
 The checked-in C++ firmware now targets this three-wire link. The RP2350 uses UART0 on GP0/GP1 without the LilyGO I²C expander startup; the ESP32-C6 uses UART0 on GPIO16/GPIO17 and sends its console output through USB Serial/JTAG. The ESP currently joins the provisioned `beaver` network and keeps `Rabbit-Test-6905` available as a fallback AP. The LCD shows live workout status and the Beaver DHCP address. The checked-in Coach On Deck browser UI is served at `/`, with repeatable pace/sprint set commands and NVS-backed saved sets; `/test` retains the manual diagnostics page. DeckScript plan transfer and surge pacing are flashed and passed paired-device HTTP/UART smoke tests; full browser and pool-side acceptance, external LEDs/audio, protected configuration editing, and hardware qualification remain unfinished. See [firmware/README.md](firmware/README.md) for build and diagnostic commands.

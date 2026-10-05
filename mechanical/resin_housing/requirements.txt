@@ -1,0 +1,5 @@
+manifold3d==3.5.4
+trimesh==4.12.2
+numpy==2.5.3
+networkx==3.5
+matplotlib==3.11.2
