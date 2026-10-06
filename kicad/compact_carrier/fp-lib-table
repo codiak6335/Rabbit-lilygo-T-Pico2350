@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "Rabbit_Carrier") (type "KiCad") (uri "${KIPRJMOD}/Rabbit_Carrier.pretty") (options "") (descr "Local compact carrier footprints"))
+)
