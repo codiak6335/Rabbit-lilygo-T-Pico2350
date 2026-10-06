@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="210mm" height="297mm" viewBox="0 0 1050 1485">
+<title>Rabbit Carrier Rev D — provisional case placement plan</title>
+<desc>60 by 100 millimetre carrier. Landscape LCD active area centered at 30,50. LED wiring exits the top and 12 volt power enters the bottom. Both module USB ports face left. Case aperture, heights and RF envelope require first-article confirmation.</desc>
+<defs>
+ <pattern id="rf" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M-2 2L2-2M0 9L9 0M7 11L11 7" stroke="#c4b5fd" stroke-width="1.1"/></pattern>
+ <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#334155"/></marker>
+ <marker id="dim" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M7 0L0 3.5L7 7Z" fill="#64748b"/></marker>
+</defs>
+<rect width="1050" height="1485" fill="white"/>
+<g font-family="DejaVu Sans, sans-serif">
+<text x="65.000" y="68.000" font-size="34" fill="#0f172a" text-anchor="start" font-weight="bold">RABBIT CARRIER / REV D</text>
+<text x="65.000" y="106.000" font-size="21" fill="#334155" text-anchor="start" >Centered landscape LCD · top LED exit · bottom power entry</text>
+<text x="65.000" y="142.000" font-size="17" fill="#64748b" text-anchor="start" >PROVISIONAL CASE STUDY  |  dimensions in mm  |  board datum: upper-left (0,0)</text>
+<line x1="270.000" y1="185.000" x2="750.000" y2="185.000" stroke="#64748b" stroke-width="1.5" marker-start="url(#dim)" marker-end="url(#dim)"/>
+<line x1="270.000" y1="177.000" x2="270.000" y2="225.000" stroke="#64748b" stroke-width="1.5" />
+<line x1="750.000" y1="177.000" x2="750.000" y2="225.000" stroke="#64748b" stroke-width="1.5" />
+<text x="510.000" y="177.000" font-size="20" fill="#334155" text-anchor="middle" >60.00</text>
+<line x1="220.000" y1="230.000" x2="220.000" y2="1030.000" stroke="#64748b" stroke-width="1.5" marker-start="url(#dim)" marker-end="url(#dim)"/>
+<line x1="212.000" y1="230.000" x2="265.000" y2="230.000" stroke="#64748b" stroke-width="1.5" />
+<line x1="212.000" y1="1030.000" x2="265.000" y2="1030.000" stroke="#64748b" stroke-width="1.5" />
+<text x="195.000" y="630.000" font-size="20" fill="#334155" text-anchor="middle" transform="rotate(-90 195 630.0)">100.00</text>
+<rect x="270.000" y="230.000" width="480.000" height="800.000" fill="#f1f5f9" stroke="#334155" stroke-width="2.5" />
+<rect x="692.240" y="728.000" width="148.000" height="284.000" fill="url(#rf)" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="646.000" y="574.000" width="104.000" height="112.000" fill="url(#rf)" stroke="#8b5cf6" stroke-width="1.3" stroke-dasharray="6 4"/>
+<text x="65.000" y="254.000" font-size="16" fill="#64748b" text-anchor="start" >(0,0)</text>
+<line x1="112.000" y1="249.000" x2="264.000" y2="233.000" stroke="#94a3b8" stroke-width="1" />
+<circle cx="366.000" cy="270.000" r="11.200" fill="#fde68a" stroke="#92400e" stroke-width="1.1"/>
+<text x="366.000" y="303.000" font-size="15" fill="#334155" text-anchor="middle" >12V</text>
+<circle cx="414.000" cy="270.000" r="11.200" fill="#fde68a" stroke="#92400e" stroke-width="1.1"/>
+<text x="414.000" y="303.000" font-size="15" fill="#334155" text-anchor="middle" >GND</text>
+<circle cx="462.000" cy="270.000" r="11.200" fill="#fde68a" stroke="#92400e" stroke-width="1.1"/>
+<text x="462.000" y="303.000" font-size="15" fill="#334155" text-anchor="middle" >DI</text>
+<circle cx="510.000" cy="270.000" r="11.200" fill="#fde68a" stroke="#92400e" stroke-width="1.1"/>
+<text x="510.000" y="303.000" font-size="15" fill="#334155" text-anchor="middle" >NC</text>
+<line x1="438.000" y1="246.000" x2="438.000" y2="214.000" stroke="#334155" stroke-width="2.3" marker-end="url(#arrow)"/>
+<text x="459.000" y="218.000" font-size="19" fill="#0f172a" text-anchor="start" font-weight="bold">LED OUT</text>
+<circle cx="470.000" cy="990.000" r="11.200" fill="#fde68a" stroke="#92400e" stroke-width="1.1"/>
+<text x="470.000" y="968.000" font-size="16" fill="#334155" text-anchor="middle" >+12V</text>
+<circle cx="518.000" cy="990.000" r="11.200" fill="#fde68a" stroke="#92400e" stroke-width="1.1"/>
+<text x="518.000" y="968.000" font-size="16" fill="#334155" text-anchor="middle" >GND</text>
+<line x1="494.000" y1="1086.000" x2="494.000" y2="1038.000" stroke="#334155" stroke-width="2.3" marker-end="url(#arrow)"/>
+<text x="494.000" y="1114.000" font-size="21" fill="#0f172a" text-anchor="middle" font-weight="bold">12 V POWER IN</text>
+<rect x="558.000" y="318.000" width="160.000" height="116.000" fill="#dbeafe" stroke="#64748b" stroke-width="1.5" rx="3"/>
+<text x="638.000" y="366.000" font-size="22" fill="#1e3a8a" text-anchor="middle" font-weight="bold">DROK</text>
+<text x="638.000" y="392.000" font-size="16" fill="#1e3a8a" text-anchor="middle" >12 V → 5 V</text>
+<rect x="284.880" y="786.000" width="408.000" height="168.000" fill="#e2e8f0" stroke="#64748b" stroke-width="1.6" rx="3"/>
+<rect x="283.680" y="788.880" width="410.400" height="20.000" fill="#334155" stroke="#0f172a" stroke-width="1" />
+<circle cx="295.840" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="316.160" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="336.480" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="356.800" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="377.120" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="397.440" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="417.760" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="438.080" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="458.400" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="478.720" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="499.040" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="519.360" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="539.680" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="560.000" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="580.320" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="600.640" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="620.960" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="641.280" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="661.600" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="681.920" cy="798.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<rect x="283.680" y="931.120" width="410.400" height="20.000" fill="#334155" stroke="#0f172a" stroke-width="1" />
+<circle cx="295.840" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="316.160" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="336.480" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="356.800" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="377.120" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="397.440" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="417.760" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="438.080" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="458.400" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="478.720" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="499.040" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="519.360" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="539.680" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="560.000" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="580.320" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="600.640" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="620.960" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="641.280" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="661.600" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="681.920" cy="941.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<rect x="692.880" y="812.000" width="39.360" height="116.000" fill="#dcfce7" stroke="#15803d" stroke-width="1.3" />
+<text x="712.560" y="875.000" font-size="13" fill="#15803d" text-anchor="middle" transform="rotate(-90 712.56 870.0)">ANT</text>
+<text x="510.000" y="862.000" font-size="21" fill="#334155" text-anchor="middle" font-weight="bold">RP2350B-Plus-W</text>
+<text x="510.000" y="890.000" font-size="15" fill="#475569" text-anchor="middle" >removable / standard sockets</text>
+<rect x="284.880" y="526.000" width="408.000" height="208.000" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" rx="3"/>
+<rect x="283.680" y="548.880" width="410.400" height="20.000" fill="#334155" stroke="#0f172a" stroke-width="1" />
+<circle cx="295.840" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="316.160" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="336.480" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="356.800" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="377.120" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="397.440" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="417.760" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="438.080" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="458.400" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="478.720" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="499.040" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="519.360" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="539.680" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="560.000" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="580.320" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="600.640" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="620.960" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="641.280" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="661.600" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="681.920" cy="558.880" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<rect x="283.680" y="691.120" width="410.400" height="20.000" fill="#334155" stroke="#0f172a" stroke-width="1" />
+<circle cx="295.840" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="316.160" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="336.480" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="356.800" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="377.120" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="397.440" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="417.760" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="438.080" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="458.400" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="478.720" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="499.040" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="519.360" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="539.680" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="560.000" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="580.320" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="600.640" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="620.960" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="641.280" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="661.600" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<circle cx="681.920" cy="701.120" r="2.800" fill="#fde68a" stroke="#64748b" stroke-width="0.7"/>
+<rect x="295.120" y="526.800" width="397.760" height="206.400" fill="#111827" stroke="#111827" stroke-width="1" rx="3"/>
+<rect x="339.120" y="539.200" width="341.760" height="181.600" fill="#0f2437" stroke="#24364b" stroke-width="1" />
+<text x="356.120" y="571.200" font-size="22" fill="#e2e8f0" text-anchor="start" font-weight="bold">RABBIT</text>
+<circle cx="566.120" cy="565.200" r="4" fill="#4ade80"/>
+<text x="577.120" y="571.200" font-size="14" fill="#86efac" text-anchor="start" >ONLINE</text>
+<line x1="356.120" y1="585.200" x2="662.120" y2="585.200" stroke="#334155" stroke-width="1" />
+<text x="356.120" y="613.200" font-size="16" fill="#94a3b8" text-anchor="start" >Race control</text>
+<text x="356.120" y="658.200" font-size="35" fill="#f8fafc" text-anchor="start" font-weight="bold">READY</text>
+<text x="356.120" y="694.200" font-size="17" fill="#cbd5e1" text-anchor="start" >Lane 1    ·    Heat 12</text>
+<rect x="336.000" y="536.000" width="348.000" height="188.000" fill="none" stroke="#06b6d4" stroke-width="2" stroke-dasharray="7 4"/>
+<text x="510.000" y="760.400" font-size="17" fill="#0f172a" text-anchor="middle" >LCD center (30.00, 50.00)</text>
+<text x="510.000" y="782.400" font-size="14" fill="#64748b" text-anchor="middle" >Screen UI shown for illustration only</text>
+<rect x="272.960" y="594.200" width="40.000" height="71.600" fill="#cbd5e1" stroke="#475569" stroke-width="1.4" rx="3"/>
+<line x1="105.000" y1="630.000" x2="264.960" y2="630.000" stroke="#64748b" stroke-width="1.2" />
+<text x="65.000" y="616.000" font-size="18" fill="#334155" text-anchor="start" >USB-C</text>
+<text x="65.000" y="643.000" font-size="15" fill="#64748b" text-anchor="start" >left access</text>
+<rect x="274.880" y="834.200" width="40.000" height="71.600" fill="#cbd5e1" stroke="#475569" stroke-width="1.4" rx="3"/>
+<line x1="105.000" y1="870.000" x2="266.880" y2="870.000" stroke="#64748b" stroke-width="1.2" />
+<text x="65.000" y="856.000" font-size="18" fill="#334155" text-anchor="start" >USB-C</text>
+<text x="65.000" y="883.000" font-size="15" fill="#64748b" text-anchor="start" >left access</text>
+<circle cx="714.000" cy="502.000" r="8.800" fill="#fde68a" stroke="#92400e" stroke-width="1.1"/>
+<text x="697.000" y="507.000" font-size="16" fill="#334155" text-anchor="end" >+</text>
+<circle cx="714.000" cy="468.400" r="8.800" fill="#fde68a" stroke="#92400e" stroke-width="1.1"/>
+<text x="697.000" y="473.400" font-size="16" fill="#334155" text-anchor="end" >−</text>
+<line x1="736.000" y1="486.000" x2="818.000" y2="486.000" stroke="#94a3b8" stroke-width="1" />
+<text x="830.000" y="483.000" font-size="17" fill="#334155" text-anchor="start" >BUZZER</text>
+<text x="830.000" y="508.000" font-size="15" fill="#64748b" text-anchor="start" >side wires</text>
+<circle cx="302.000" cy="262.000" r="16.400" fill="white" stroke="#94a3b8" stroke-width="1.1"/>
+<circle cx="302.000" cy="262.000" r="10.800" fill="white" stroke="#334155" stroke-width="1.1"/>
+<circle cx="718.000" cy="262.000" r="16.400" fill="white" stroke="#94a3b8" stroke-width="1.1"/>
+<circle cx="718.000" cy="262.000" r="10.800" fill="white" stroke="#334155" stroke-width="1.1"/>
+<circle cx="302.000" cy="998.000" r="16.400" fill="white" stroke="#94a3b8" stroke-width="1.1"/>
+<circle cx="302.000" cy="998.000" r="10.800" fill="white" stroke="#334155" stroke-width="1.1"/>
+<circle cx="630.000" cy="998.000" r="16.400" fill="white" stroke="#94a3b8" stroke-width="1.1"/>
+<circle cx="630.000" cy="998.000" r="10.800" fill="white" stroke="#334155" stroke-width="1.1"/>
+<line x1="260.000" y1="630.000" x2="280.000" y2="630.000" stroke="#06b6d4" stroke-width="1.5" />
+<line x1="740.000" y1="630.000" x2="760.000" y2="630.000" stroke="#06b6d4" stroke-width="1.5" />
+<text x="858.000" y="786.000" font-size="18" fill="#7c3aed" text-anchor="start" font-weight="bold">RF clear</text>
+<text x="858.000" y="812.000" font-size="16" fill="#7c3aed" text-anchor="start" >of copper</text>
+<text x="858.000" y="837.000" font-size="16" fill="#7c3aed" text-anchor="start" >and metal</text>
+<line x1="820.000" y1="812.000" x2="848.000" y2="812.000" stroke="#8b5cf6" stroke-width="1" />
+<text x="856.000" y="967.000" font-size="15" fill="#7c3aed" text-anchor="start" >Extends</text>
+<text x="856.000" y="992.000" font-size="17" fill="#7c3aed" text-anchor="start" >11.28 mm</text>
+<text x="856.000" y="1017.000" font-size="15" fill="#7c3aed" text-anchor="start" >past PCB</text>
+<text x="65.000" y="1078.000" font-size="16" fill="#64748b" text-anchor="start" >Ø2.70 carrier mounting holes</text>
+<line x1="65.000" y1="1145.000" x2="985.000" y2="1145.000" stroke="#cbd5e1" stroke-width="1.2" />
+<text x="65.000" y="1182.000" font-size="22" fill="#0f172a" text-anchor="start" font-weight="bold">Case reference — confirm against the assembled first article</text>
+<text x="65.000" y="1218.000" font-size="18" fill="#334155" text-anchor="start" >Cyan dashed window: 43.50 × 23.50; active LCD: 42.72 × 22.70.</text>
+<text x="65.000" y="1251.000" font-size="18" fill="#334155" text-anchor="start" >Estimated LCD face: 18.35 above PCB top with 8.5 mm sockets.</text>
+<text x="65.000" y="1284.000" font-size="18" fill="#334155" text-anchor="start" >Reserve 20–22 inner depth; verify header engagement and lid clearance.</text>
+<text x="65.000" y="1317.000" font-size="18" fill="#334155" text-anchor="start" >Provide left-side USB openings and clearance for the actual plug moulding.</text>
+<text x="65.000" y="1350.000" font-size="18" fill="#334155" text-anchor="start" >Purple hatch: carrier RF exclusions; keep case hardware and wiring clear.</text>
+<text x="65.000" y="1383.000" font-size="16" fill="#64748b" text-anchor="start" >Waveshare&#x27;s C6 mechanical archive contains an S3-named model: fit is provisional.</text>
+<text x="65.000" y="1416.000" font-size="17" fill="#64748b" text-anchor="start" >DXF: 1:1 mm, board-relative aperture reference; not a finalized enclosure.</text>
+<a xlink:href="https://docs.waveshare.com/ESP32-C6-LCD-1.9"><text x="65.000" y="1453.000" font-size="14" fill="#2563eb" text-anchor="start" >ESP mechanical source</text></a>
+<a xlink:href="https://www.waveshare.com/img/devkit/RP2350B-Plus-W/RP2350B-Plus-W-details-size.jpg"><text x="338.000" y="1453.000" font-size="14" fill="#2563eb" text-anchor="start" >RP mechanical source</text></a>
+<a xlink:href="https://pip-assets.raspberrypi.com/categories/1216-raspberry-pi-radio-module-2/documents/RP-008943-DS-6-Radio%20Module%202%20Datasheet.pdf?disposition=inline"><text x="610.000" y="1453.000" font-size="14" fill="#2563eb" text-anchor="start" >RM2 RF exclusion source</text></a>
+</g></svg>

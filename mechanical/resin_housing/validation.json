@@ -1,26 +1,26 @@
 {
   "units": "mm",
   "parameters": {
-    "carrier_width": 88.0,
-    "carrier_height": 58.0,
+    "carrier_width": 60.0,
+    "carrier_height": 100.0,
     "carrier_thickness": 1.6,
     "pcb_underside_clearance": 2.5,
-    "above_pcb_clearance": 20.0,
+    "above_pcb_clearance": 22.0,
     "floor_thickness": 3.0,
     "lid_thickness": 4.0,
-    "cavity_left_clearance": 2.0,
-    "cavity_right_clearance": 2.0,
-    "cavity_front_clearance": 10.0,
+    "cavity_left_clearance": 3.0,
+    "cavity_right_clearance": 3.0,
+    "cavity_front_clearance": 6.0,
     "cavity_back_clearance": 6.0,
     "rim_width": 8.0,
-    "lcd_center_x": 31.0,
-    "lcd_center_y": 14.0,
-    "view_width": 46.0,
-    "view_height": 26.0,
+    "lcd_center_x": 30.0,
+    "lcd_center_y": 50.0,
+    "view_width": 43.5,
+    "view_height": 23.5,
     "view_radius": 1.0,
     "resin_flange_border": 6.0,
     "resin_flange_thickness": 2.4,
-    "retainer_border": 3.0,
+    "retainer_border": 4.0,
     "retainer_thickness": 2.0,
     "window_seal_groove_width": 1.2,
     "window_seal_groove_depth": 0.6,
@@ -35,27 +35,115 @@
     "relief_tail_length": 20.0,
     "relief_bore_clearance": 0.2,
     "wrap_seam_width": 0.4,
-    "entry_y_positions": [
-      27.0,
-      47.0
-    ],
-    "entry_center_z": 15.0,
     "wire_diameters": [
       2.3,
       3.0,
       3.5,
       4.0
+    ],
+    "pcb_revision": "rev_d_case",
+    "pcb_reference_file": "reference/Rabbit_Carrier_RevD.kicad_pcb",
+    "pcb_reference_sha256": "bce839fee6d8e68064adba59b964de64c666366bed89eab5f5a18f399f759768",
+    "carrier_mount_holes": [
+      [
+        4.0,
+        4.0
+      ],
+      [
+        56.0,
+        4.0
+      ],
+      [
+        4.0,
+        96.0
+      ],
+      [
+        45.0,
+        96.0
+      ]
+    ],
+    "carrier_mount_drill": 2.7,
+    "carrier_mount_post_diameter": 6.0,
+    "carrier_mount_pilot_diameter": 2.0,
+    "lcd_socket_offset": [
+      26.77,
+      8.89
+    ],
+    "retainer_screw_x_offsets": [
+      -19.0,
+      19.0
+    ],
+    "esp_body": [
+      1.86,
+      37.0,
+      51.0,
+      26.0
+    ],
+    "rp_body": [
+      1.86,
+      69.5,
+      51.0,
+      21.0
+    ],
+    "rp_antenna_body": [
+      52.86,
+      72.75,
+      4.92,
+      14.5
+    ],
+    "drok_body": [
+      36.0,
+      11.0,
+      20.0,
+      14.5
+    ],
+    "lcd_face_above_pcb": 18.35,
+    "rp_module_height_above_pcb": 14.0,
+    "drok_height_above_pcb": 18.0,
+    "rf_keepouts": [
+      {
+        "name": "RP",
+        "bounds": [
+          52.78,
+          62.25,
+          71.28,
+          97.75
+        ]
+      },
+      {
+        "name": "ESP",
+        "bounds": [
+          47.0,
+          43.0,
+          60.0,
+          57.0
+        ]
+      }
+    ],
+    "cable_entries": [
+      {
+        "role": "LED",
+        "face": "top",
+        "x": 21.0,
+        "z": 15.0
+      },
+      {
+        "role": "POWER",
+        "face": "bottom",
+        "x": 28.0,
+        "z": 15.0
+      }
     ]
   },
   "dimensions": {
-    "body_height": 27.1,
-    "closed_height": 31.1,
-    "outer_width": 108.0,
-    "outer_height": 90.0,
+    "body_height": 29.1,
+    "closed_height": 33.1,
+    "outer_width": 82.0,
+    "outer_height": 128.0,
     "pcb_bottom_z": 5.5,
     "pcb_top_z": 7.1,
-    "resin_volume_ml": 7.183232924714179,
-    "gasket_cut_length_mm": 342.7256600888212,
+    "resin_volume_ml": 6.34423292471418,
+    "gasket_cut_length_mm": 366.7256600888212,
     "cable_glue_gap_radial_mm": 0.5999999999999996
   },
   "mesh_checks": {
@@ -63,45 +151,34 @@
       "watertight_mesh": true,
       "connected_bodies": 1,
       "dimensions_mm": [
-        108.0,
-        90.0,
-        27.1
+        82.0,
+        128.0,
+        29.1
       ],
-      "volume_ml": 97.031,
-      "triangles": 7844
+      "volume_ml": 109.879,
+      "triangles": 9316
     },
     "lid_frame_petg": {
       "watertight_mesh": true,
       "connected_bodies": 1,
       "dimensions_mm": [
-        108.0,
-        90.0,
+        82.0,
+        128.0,
         4.0
       ],
-      "volume_ml": 31.301,
-      "triangles": 5824
+      "volume_ml": 35.244,
+      "triangles": 5832
     },
     "window_retainer_petg": {
       "watertight_mesh": true,
       "connected_bodies": 1,
       "dimensions_mm": [
-        64.0,
-        44.0,
+        63.5,
+        43.5,
         2.0
       ],
-      "volume_ml": 2.779,
-      "triangles": 3952
-    },
-    "pcb_corner_clip_petg_print_4": {
-      "watertight_mesh": true,
-      "connected_bodies": 1,
-      "dimensions_mm": [
-        3.6,
-        6.2,
-        4.0
-      ],
-      "volume_ml": 0.067,
-      "triangles": 412
+      "volume_ml": 3.046,
+      "triangles": 3958
     },
     "cable_entry_fit_coupon_petg": {
       "watertight_mesh": true,
@@ -236,6 +313,62 @@
       "triangles": 1148
     }
   },
-  "assembly_checks": "PASS: no solid collisions in nominal reference assembly; gasket/window isolated from fastener bores",
-  "limitations": "Geometric checks only. Carrier and stack dimensions require physical confirmation; waterproof performance is untested."
+  "assembly_checks": "PASS: Rev D mounts/PCB/module/gland clearances; gasket/window isolated from fasteners; case metal clears both RF exclusions",
+  "limitations": "Geometric checks only. Carrier and stack dimensions require physical confirmation; waterproof performance is untested.",
+  "pcb_reference_check": {
+    "revision": "rev_d_case",
+    "sha256": "bce839fee6d8e68064adba59b964de64c666366bed89eab5f5a18f399f759768",
+    "board_mm": [
+      60.0,
+      100.0
+    ],
+    "mount_holes_mm": [
+      [
+        4.0,
+        4.0
+      ],
+      [
+        56.0,
+        4.0
+      ],
+      [
+        4.0,
+        96.0
+      ],
+      [
+        45.0,
+        96.0
+      ]
+    ],
+    "lcd_center_mm": [
+      30.0,
+      50.0
+    ],
+    "socket_rows_mm": {
+      "J3": [
+        3.23,
+        41.11
+      ],
+      "J4": [
+        3.23,
+        58.89
+      ],
+      "J2": [
+        3.23,
+        71.11
+      ],
+      "J1": [
+        3.23,
+        88.89
+      ]
+    },
+    "led_pad_1_mm": [
+      12.0,
+      5.0
+    ],
+    "power_pad_1_mm": [
+      25.0,
+      95.0
+    ]
+  }
 }

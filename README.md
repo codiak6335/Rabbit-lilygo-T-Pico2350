@@ -19,13 +19,16 @@ The existing connection contains TX, RX, and ground; no RTS/CTS wires were speci
 
 ## Printable enclosure
 
-The [resin-window housing](mechanical/resin_housing/README.md) includes PETG body,
-lid frame, window retainer and PCB clips, plus closed and split-wrap TPU strain
+The [Rev D resin-window housing](mechanical/resin_housing/README.md) includes PETG body,
+lid frame, window retainer and integral PCB standoffs, plus closed and split-wrap TPU strain
 relief STLs for 2.3, 3, 3.5 and 4 mm cable jackets. It uses a cast clear resin
 window, a silicone cord lid seal and two oversized cable entries for adhesive
 sealing. Editable dimensions, print-fit coupons and assembly instructions are
-included. The 108 × 90 × 31.1 mm prototype assumes the 88 × 58 mm carrier layout;
-physical fit and splash/submersion qualification remain to be performed.
+included. The 82 × 128 × 33.1 mm prototype matches the `rev_d_case` 60 × 100 mm
+PCB and its offset mounting hole, with the display centered, LED cable entry at
+the top and power cable entry at the bottom. The captured KiCad reference is
+checked during regeneration. Physical fit and splash/submersion qualification
+remain to be performed.
 
 ## Current firmware status
 
