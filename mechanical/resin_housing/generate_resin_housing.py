@@ -424,6 +424,7 @@ def drawing(output, p, meta):
     fw = p["view_width"] + 2 * p["resin_flange_border"]
     fh = p["view_height"] + 2 * p["resin_flange_border"]
     ports = ''
+    entry_centres = '; '.join(f'{entry["role"]} X={entry["x"]:g}' for entry in p["cable_entries"])
     for entry in p["cable_entries"]:
         top = entry["face"] == "top"
         px = entry["x"] + tx
@@ -446,7 +447,7 @@ def drawing(output, p, meta):
 <text x="28" y="201" font-size="4">Closed height: {meta['closed_height']:g}; floor: {p['floor_thickness']:g}; lid: {p['lid_thickness']:g}</text>
 <text x="28" y="208" font-size="4">Cast flange: {fw:g} × {fh:g} × {p['resin_flange_thickness']:g}; clear centre: {p['lid_thickness']:g} thick</text>
 <text x="28" y="215" font-size="4">Rev D PCB: {p['carrier_width']:g} × {p['carrier_height']:g}; {p['above_pcb_clearance']:g} above PCB / {p['above_pcb_clearance']-p['retainer_thickness']:g} below retainer</text>
-<text x="28" y="222" font-size="4">LCD centre: PCB (30,50); LED entry X=21; power entry X=28</text>
+<text x="28" y="222" font-size="4">LCD centre: PCB ({p['lcd_center_x']:g},{p['lcd_center_y']:g}); {entry_centres}</text>
 <text x="28" y="229" font-size="4">Both cable axes Z=15; 4 × Ø2.7 PCB mounts, lower-right offset</text>
 <text x="28" y="242" font-size="3.5">PCB datums checked against captured Rev D file. Verify assembled heights.</text></g></svg>'''
     (output / "dimensions.svg").write_text(svg)

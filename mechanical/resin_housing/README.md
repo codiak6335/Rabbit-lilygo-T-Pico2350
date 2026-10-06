@@ -1,6 +1,6 @@
 # Rev D housing with cast-resin viewing lid
 
-Printable housing for the **`rev_d_case` 60 × 100 mm carrier PCB**, with a clear resin window centered over the ESP32 display. The assembled shell is **82 × 128 × 33.1 mm**, excluding the cable boots. Viewed with the screen facing you, the **LED cable exits the top end** and **power enters the bottom end**, aligned with J6 and J5. Both entries accept the same relief neck; choose reliefs for **2.3, 3.0, 3.5 or 4.0 mm complete cable jacket diameters**.
+Printable housing for the **`rev_d_case` 60 × 100 mm carrier PCB**, with a clear resin window centered over the ESP32 display. The assembled shell is **82 × 128 × 33.1 mm**, excluding the cable boots. Viewed with the screen facing you, the **LED cable exits the top end** and **power enters the bottom end**. Both glands share the case and display centreline at **X = 30 mm**, with internal leads running to J6 and J5. Both entries accept the same relief neck; choose reliefs for **2.3, 3.0, 3.5 or 4.0 mm complete cable jacket diameters**.
 
 This replaces the earlier 88 × 58 mm compact-carrier housing. PCB outline, mounting holes and socket positions are checked against the captured [Rev D KiCad board](reference/Rabbit_Carrier_RevD.kicad_pcb). Module heights, actual LCD datum and sealing still require first-article checks. **Physical fit and leak testing have not been performed; it has no verified waterproof/IP rating.** Print the coupons first, then qualify frequent splashes and brief submersion up to 3 ft.
 
@@ -51,8 +51,8 @@ See [dimensions.svg](dimensions.svg) for the plan. Coordinates below follow the 
 | Window retainer | 63.5 × 43.5 × 2 mm; continuous 1.2 mm wide × 0.6 mm deep sealant groove |
 | Retainer screw centres | (11,30.25), (49,30.25), (11,69.75), (49,69.75); clear of RF exclusions |
 | Cable holes | Ø8.6 mm through the 8 mm top and bottom end walls |
-| LED entry | Top end (−Y), X = 21; wall spans Y = −14 to −6; cable axis Z = 15 |
-| Power entry | Bottom end (+Y), X = 28; wall spans Y = 106 to 114; cable axis Z = 15 |
+| LED entry | Top end (−Y), centered at X = 30; wall spans Y = −14 to −6; cable axis Z = 15 |
+| Power entry | Bottom end (+Y), centered at X = 30; wall spans Y = 106 to 114; cable axis Z = 15 |
 | Relief neck / collar | Ø7.4 mm neck, 8.3 mm between collar faces; Ø12 mm collars |
 | Glue clearance | 0.6 mm radial gap around relief neck; 0.1 mm nominal radial gap around cable |
 | Relief length | 33.8 mm total; approximately 24 mm projects outside the case |
@@ -61,7 +61,7 @@ See [dimensions.svg](dimensions.svg) for the plan. Coordinates below follow the 
 
 The ESP board envelope is 51 × 26 mm at carrier X=1.86, Y=37; the RP2350 is 51 × 21 mm at X=1.86, Y=69.5, with a 4.92 mm radio extension to the right. The visible display centre is (30,50), while the ESP PCB centre is (27.36,50). The 2.64 mm offset comes from the Rev D case datum: J3 pad 1 + (26.77,8.89). The active display is 42.72 × 22.70 mm and clears the modeled opening. Confirm the first article against [Waveshare dimensions](https://docs.waveshare.com/ESP32-C6-LCD-1.9); the Rev D documentation flags the manufacturer archive's S3-named mechanical model as provisional for the C6 board.
 
-The four standoffs match the carrier's real mounting holes, including the deliberately offset lower-right hole. USB connectors remain enclosed; for USB service, remove the lid and lift the controller from its sockets to give the plug room. The LED gland is opposite J6's top pads; the power gland is opposite J5's bottom pads. These are end-wall entries, with the lid and base kept intact. Verify actual cable jacket diameters, collar installation, wiring bends, socket engagement and assembled module height before printing the full body. The LCD face height is the Rev D estimate; RP and DROK heights are conservative illustrative reservations, not measured assemblies.
+The four standoffs match the carrier's real mounting holes, including the deliberately offset lower-right hole. USB connectors remain enclosed; for USB service, remove the lid and lift the controller from its sockets to give the plug room. Both end-wall glands are centered at X=30; route their internal leads to J6 at the top and J5 at the bottom. The lid and base remain intact. Verify actual cable jacket diameters, collar installation, wiring bends, socket engagement and assembled module height before printing the full body. The LCD face height is the Rev D estimate; RP and DROK heights are conservative illustrative reservations, not measured assemblies.
 
 Both ends have 6 mm clearance for the inner cable collars and wiring. Side clearance accommodates the resin flange/retainer; the 8 mm rim provides room for the cord seal and lid screws outside it. The shell adds about 24 mm of external boot projection at each end.
 
@@ -100,7 +100,7 @@ Inspect printed seams and layer bonding. Seal any porosity with a compatible thi
 
 ## Editing and regenerating
 
-The editable design is [parameters.json](parameters.json) plus [generate_resin_housing.py](generate_resin_housing.py). Change assembled clearance, resin window dimensions or cable positions there. PCB datums are tied to the captured [Rev D board](reference/Rabbit_Carrier_RevD.kicad_pcb), copied from `/home/codiak/hgfs/vmshared/Rabbit_Carrier/rev_d_case/`. The [original case plan](reference/RevD_Case_Plan.svg) and [display alignment](reference/RevD_Horizontal_Alignment.svg) record the mechanical datum assumptions. The SHA-256 identifies the exact PCB input. A different board revision requires a new source reference and reviewed mounting/module datums.
+The editable design is [parameters.json](parameters.json) plus [generate_resin_housing.py](generate_resin_housing.py). Change assembled clearance, resin window dimensions or cable positions there. PCB datums are tied to the captured [Rev D board](reference/Rabbit_Carrier_RevD.kicad_pcb), copied from `/home/codiak/hgfs/vmshared/Rabbit_Carrier/rev_d_case/`. The [original case plan](reference/RevD_Case_Plan.svg) and [display alignment](reference/RevD_Horizontal_Alignment.svg) record the mechanical datum assumptions. The original plan's wiring arrows mark PCB connection positions; this housing uses centered glands as specified in `parameters.json`. The SHA-256 identifies the exact PCB input. A different board revision requires a new source reference and reviewed mounting/module datums.
 
 The generator checks source checksum, PCB outline/thickness, all four mount holes/drills, socket rows, DROK origin, module placement and LCD centre against the KiCad file. It exports 15 STLs, the dimension drawing, previews and [validation.json](validation.json), checking connected watertight meshes, winding, exported STL reloads, assembly collisions, print-bed placement, LCD visibility, correct top LED/bottom power assignment and case-metal clearance from both RF exclusions. Both window and carrier screw holes are blind; only the two sealed cable holes open through the shell.
 
