@@ -192,3 +192,7 @@ its address but not the name or confirmation overwritten by the old single-devic
 setting. Earlier live checks verified automatic MEGABOOM volume changes and real
 discovery/cancellation. Pool-side latency remains to be qualified. The ESP32 address
 for these checks was `http://192.168.0.166/`; use the current LCD address if DHCP changes it.
+
+## Wi-Fi Defaults
+
+The default Wi-Fi password is `1234567890`.
