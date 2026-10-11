@@ -44,7 +44,7 @@ constexpr int kMaxPlanBodyBytes = 12 * 1024;
 constexpr std::int64_t kResponseTimeoutUs = 1'500'000;
 // Keep the direct-connect AP as a fallback while testing the provisioned station.
 constexpr bool kTestApOnly = false;
-constexpr char kTestAccessPointPassword[] = "rabbit-test-2026";
+constexpr char kTestAccessPointPassword[] = "1234567890";
 constexpr char kTestAccessPointAddress[] = "192.168.4.1";
 wifi_config_t wifi_configuration{};
 char test_access_point_ssid[33]{};
